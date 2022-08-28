@@ -1,0 +1,71 @@
+name: Terraform Reusable Workflow
+
+on:
+  workflow_call:
+    inputs:
+      git_env:
+        required: true
+        type: string
+      customer:
+        required: true
+        type: string
+      customer_envs:
+        required: true
+        type: string
+      working_dir:
+        required: true
+        type: string
+      create_customer_folder:
+        required: true
+        type: string
+    secrets:
+      tf_token:
+        required: true
+      gcp_creds:
+        required: true
+      mongodb_pub_key:
+        required: false
+      mongodb_pvt_key:
+        required: false        
+
+jobs:
+  terraform:
+    name: 'Terraform'
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.git_env }}
+
+    env:
+      TF_API_TOKEN: ${{ secrets.tf_token }}
+      GOOGLE_CREDENTIALS: ${{ secrets.gcp_creds }}
+      TF_VAR_mongodb_public_key: ${{ secrets.mongodb_pub_key }}
+      TF_VAR_mongodb_private_key: ${{ secrets.mongodb_pvt_key }}
+
+    defaults:
+      run:
+        shell: bash
+
+    strategy:
+      matrix:
+        customer: ${{ fromJson(inputs.customer) }}
+        customer_envs: ${{ fromJson(inputs.customer_envs) }}
+
+    steps:
+      - name: 'GitHub Checkout'
+        uses: actions/checkout@v2
+
+      - name: 'Terraform Setup'
+        uses: hashicorp/setup-terraform@v1
+        with:
+          cli_config_credentials_token: ${{ secrets.tf_token }}
+
+      - name: 'Terraform Plan'
+        if: github.event_name == 'pull_request'
+        run: |
+          chmod +x "${GITHUB_WORKSPACE}/.github/scripts/tf-plan.sh"
+          "${GITHUB_WORKSPACE}/.github/scripts/tf-plan.sh" "${{ matrix.customer }}" "${{ inputs.working_dir }}" "${{ matrix.customer_envs }}" "${{ inputs.create_customer_folder }}"
+
+      - name: 'Terraform Apply'
+        if: github.event_name == 'push'
+        run: |
+          chmod +x "${GITHUB_WORKSPACE}/.github/scripts/tf-apply.sh"
+          "${GITHUB_WORKSPACE}/.github/scripts/tf-apply.sh" "${{ matrix.customer }}" "${{ inputs.working_dir }}" "${{ matrix.customer_envs  }}" "${{ inputs.create_customer_folder }}"

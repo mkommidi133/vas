@@ -1,0 +1,22 @@
+name: 'Dev CICD'
+
+on:
+  push:
+    branches: [ dev ]
+  pull_request:
+    branches: [ dev ]
+
+jobs:
+  TF_Folders_and_Workspaces:
+    uses: ./.github/workflows/shared-workflow.yml
+    with:
+      git_env: dev
+      customer: "[\"lab\"]"
+      customer_envs: "[\"dev\"]"
+      working_dir: "terraform/1-tfc-workspaces/terraform"
+      create_customer_folder: "true"
+    secrets:
+      tf_token: ${{ secrets.TF_API_TOKEN }}
+      gcp_creds: ${{ secrets.GOOGLE_CREDENTIALS }}
+      mongodb_pub_key: ${{ secrets.MONGODB_PUBLIC_KEY }}
+      mongodb_pvt_key: ${{ secrets.MONGODB_PRIVATE_KEY }}
