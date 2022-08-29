@@ -43,20 +43,20 @@ variable "customer_folder_id" {
   default     = ""
 }
 
-#variable "customer_name" {
-#  description = "Name of the Customer"
-#  type        = string
-#}
+variable "customer_name" {
+  description = "Name of the Customer"
+  type        = string
+}
 
 variable "customer_sa_account" {
   description = "Name of the Customer SAs"
   type        = string
 }
 
-#variable "env" {
-#  description = "Current Working Environment"
-#  type        = string
-#}
+variable "env" {
+  description = "Current Working Environment"
+  type        = string
+}
 
 variable "main_workspace" {
   description = "Map of the main workspace"
@@ -93,10 +93,10 @@ variable "sa_project_id" {
   type        = string
 }
 
-#variable "tfc_organization" {
-#  description = "Name of the terraform cloud organization"
-#  type        = string
-#}
+variable "tfc_organization" {
+  description = "Name of the terraform cloud organization"
+  type        = string
+}
 
 variable "tfc_workspaces" {
   description = "Map of the customer specific workspaces"
@@ -110,17 +110,17 @@ variable "tfc_shared_workspaces" {
   default     = {}
 }
 
-#variable "vcs_identifier" {
-#  description = "GitHub identifier"
-#  type        = string
-#}
-#
-#variable "vcs_oauth" {
-#  description = "GitHub oauth"
-#  type        = string
-#}
+variable "vcs_identifier" {
+  description = "GitHub identifier"
+  type        = string
+}
 
-#variable "working_branch" {
-#  description = "GitHub Branch"
-#  type        = string
-#}
+variable "vcs_oauth" {
+  description = "GitHub oauth"
+  type        = string
+}
+
+variable "working_branch" {
+  description = "GitHub Branch"
+  type        = string
+}
