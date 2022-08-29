@@ -30,7 +30,7 @@ tfc_workspaces = {
       }
       non-hcl = {
         terraform_variables = {
-          org_id      = ""
+          org_id      = "455937971530"
           cost_center = ""
         }
         environment_variables = {}
@@ -39,52 +39,52 @@ tfc_workspaces = {
     non-sensitive = {
       hcl = {
         terraform_variables = {
-          #  infra_subnets = [
-          #    {
-          #      subnet_name   = "host-infra-subnet-us-east4-01"
-          #      subnet_ip     = "10.200.0.0/22"
-          #      subnet_region = "us-east4"
-          #    },
-          #    {
-          #      subnet_name   = "host-infra-subnet-us-east4-02"
-          #      subnet_ip     = "10.200.4.0/22"
-          #      subnet_region = "us-east4"
-          #    },
-          #    {
-          #      subnet_name   = "host-infra-subnet-us-east4-03"
-          #      subnet_ip     = "10.200.8.0/22"
-          #      subnet_region = "us-east4"
-          #    },
-          #    {
-          #      subnet_name   = "host-infra-subnet-us-east4-04"
-          #      subnet_ip     = "10.200.12.0/22"
-          #      subnet_region = "us-east4"
-          #  }]
-          #  secondary_ranges = {
-          #    host-infra-subnet-us-east4-01 = [ # This should be match the "apps_subnet_name" variable from this workspace
-          #      {
-          #        range_name    = "vas-gke-pods-sec-subnet"
-          #        ip_cidr_range = "10.200.128.0/20"
-          #      },
-          #      {
-          #        range_name    = "vas-gke-services-sec-subnet"
-          #        ip_cidr_range = "10.200.144.0/20"
-          #      }
-          #    ]
-          #  }
+          infra_subnets = [
+            {
+              subnet_name   = "host-infra-subnet-us-east4-01"
+              subnet_ip     = "10.200.0.0/22"
+              subnet_region = "us-east4"
+            },
+            {
+              subnet_name   = "host-infra-subnet-us-east4-02"
+              subnet_ip     = "10.200.4.0/22"
+              subnet_region = "us-east4"
+            },
+            {
+              subnet_name   = "host-infra-subnet-us-east4-03"
+              subnet_ip     = "10.200.8.0/22"
+              subnet_region = "us-east4"
+            },
+            {
+              subnet_name   = "host-infra-subnet-us-east4-04"
+              subnet_ip     = "10.200.12.0/22"
+              subnet_region = "us-east4"
+          }]
+          secondary_ranges = {
+            host-infra-subnet-us-east4-01 = [ # This should be match the "apps_subnet_name" variable from this workspace
+              {
+                range_name    = "vas-gke-pods-sec-subnet"
+                ip_cidr_range = "10.200.128.0/20"
+              },
+              {
+                range_name    = "vas-gke-services-sec-subnet"
+                ip_cidr_range = "10.200.144.0/20"
+              }
+            ]
+          }
 
         }
         environment_variables = {}
       }
       non-hcl = {
         terraform_variables = {
-          #environment_name   = "dev"
-          #business_unit      = "services"
-          #billing_account_id = "01FAB7-7E9E73-94559C"
-          #contact_name       = "monisha"
-          #customer_abbr      = "dv1"
-          #offer_name         = "vas"
-          #customer_name      = "lab"
+          environment_name   = "dev"
+          business_unit      = "services"
+          billing_account_id = "01746D-E6AB9A-761ACF"
+          contact_name       = "monisha"
+          customer_abbr      = "dv1"
+          offer_name         = "vas"
+          customer_name      = "lab"
         }
         environment_variables = {}
       }
@@ -102,7 +102,7 @@ tfc_workspaces = {
       }
       non-hcl = {
         terraform_variables = {
-          org_id      = ""
+          org_id      = "455937971530"
           cost_center = ""
         }
         environment_variables = {}
@@ -111,36 +111,36 @@ tfc_workspaces = {
     non-sensitive = {
       hcl = {
         terraform_variables = {
-          #secret_viewers = []
-          #generate_passwords = {
-          #  vas_mongodb_admin_pwd = {
-          #    labels = {
-          #      app           = "vas"
-          #      database      = "mongodb"
-          #      customer_name = "vas-lab"
-          #    }
-          #  }
-          #  vas_cbsp_psql_default_pwd = {
-          #    labels = {
-          #      customer_name     = "avaya-lab"
-          #      database_instance = "vas-default"
-          #      vault             = "main_vault"
-          #      app               = "vas"
-          #    }
-          #  }
-          #}
+          secret_viewers = []
+          generate_passwords = {
+            vas_mongodb_admin_pwd = {
+              labels = {
+                app           = "vas"
+                database      = "mongodb"
+                customer_name = "vas-lab"
+              }
+            }
+            vas_cbsp_psql_default_pwd = {
+              labels = {
+                customer_name     = "avaya-lab"
+                database_instance = "vas-default"
+                vault             = "main_vault"
+                app               = "vas"
+              }
+            }
+          }
         }
         environment_variables = {}
       }
       non-hcl = {
         terraform_variables = {
-          #environment_name   = "dev"
-          #business_unit      = "services"
-          #billing_account_id = "01FAB7-7E9E73-94559C"
-          #contact_name       = "monisha"
-          #customer_abbr      = "dv1"
-          #offer_name         = "vas"
-          #customer_name      = "lab"
+          environment_name   = "dev"
+          business_unit      = "services"
+          billing_account_id = "01746D-E6AB9A-761ACF"
+          contact_name       = "monisha"
+          customer_abbr      = "dv1"
+          offer_name         = "vas"
+          customer_name      = "lab"
         }
         environment_variables = {}
       }

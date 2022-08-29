@@ -1,0 +1,12 @@
+variable "org_id" {}
+variable "billing_id" {}
+variable "offer_name" {}
+variable "environment_name" {}
+variable "cost_center" {}
+variable "contact_name" {}
+variable "business_unit" {}
+variable "sa_account" {}
+variable "customer_abbr" {}
+variable "customer_name" {}
+variable "generate_passwords" {}
+variable "secret_viewers" {}
