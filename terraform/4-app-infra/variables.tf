@@ -23,10 +23,10 @@ variable "environment_name" {
 #   type        = any
 # }
 
-# variable "sa_account" {
-#   description = "GCP SA with elevated permissions"
-#   type        = string
-# }
+variable "sa_account" {
+  description = "GCP SA with elevated permissions"
+  type        = string
+}
 
 variable "primary_region" {
   description = "Primary region for instance"
