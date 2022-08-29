@@ -1,1 +1,1 @@
-var "env" {}
+variable "env" {}
