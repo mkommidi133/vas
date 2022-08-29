@@ -237,57 +237,57 @@ tfc_workspaces = {
           #    }
           #  }
           #}
-          #gke_cluster_config = {
-          #  name_prefix       = "vas"
-          #  master_cidr_block = "10.200.64.0/28"
-          #  ip_range_pods     = "vas-gke-pods-sec-subnet"
-          #  ip_range_services = "vas-gke-services-sec-subnet"
-          #  maintenance_time  = "05:00" # in GMT
-          #  release_channel   = "STABLE"
-          #  # UNSPECIFIED, RAPID, REGULAR or STABLE. Regular is usually default option to get new features in reasonable time
-          #  node_pools = {
-          #    name               = "vas-gke-node-pool"
-          #    machine_type       = "n2-standard-8"
-          #    autoscaling        = true
-          #    min_count          = 1
-          #    max_count          = 6
-          #    max_surge          = 2
-          #    max_unavailable    = 0
-          #    disk_size_gb       = 100
-          #    disk_type          = "pd-standard"
-          #    image_type         = "COS_CONTAINERD"
-          #    auto_repair        = true
-          #    auto_upgrade       = true
-          #    preemptible        = false
-          #    initial_node_count = 2
-          #  }
-          #  master_authorized_networks_config = [
-          #    {
-          #      cidr_block   = "10.200.0.0/16"
-          #      display_name = "vas-gke-vpc"
-          #    },
-          #  ]
-          #  labels = {
-          #    app           = "vas"
-          #    customer_name = "avaya-lab"
-          #    env           = "dev"
-          #    offer         = "vas"
-          #    service       = "gke-cluster"
-          #  }
-          #}
+          gke_cluster_config = {
+            name_prefix       = "vas"
+            master_cidr_block = "10.200.64.0/28"
+            ip_range_pods     = "vas-gke-pods-sec-subnet"
+            ip_range_services = "vas-gke-services-sec-subnet"
+            maintenance_time  = "05:00" # in GMT
+            release_channel   = "STABLE"
+            # UNSPECIFIED, RAPID, REGULAR or STABLE. Regular is usually default option to get new features in reasonable time
+            node_pools = {
+              name               = "vas-gke-node-pool"
+              machine_type       = "n2-standard-8"
+              autoscaling        = true
+              min_count          = 1
+              max_count          = 6
+              max_surge          = 2
+              max_unavailable    = 0
+              disk_size_gb       = 100
+              disk_type          = "pd-standard"
+              image_type         = "COS_CONTAINERD"
+              auto_repair        = true
+              auto_upgrade       = true
+              preemptible        = false
+              initial_node_count = 2
+            }
+            master_authorized_networks_config = [
+              {
+                cidr_block   = "10.200.0.0/16"
+                display_name = "vas-gke-vpc"
+              },
+            ]
+            labels = {
+              app           = "vas"
+              customer_name = "avaya-lab"
+              env           = "dev"
+              offer         = "vas"
+              service       = "gke-cluster"
+            }
+          }
         }
         environment_variables = {}
       }
       non-hcl = {
         terraform_variables = {
-          #environment_name           = "dev"
+          environment_name = "dev"
           #business_unit              = "services"
           #billing_account_id         = "01FAB7-7E9E73-94559C"
           #contact_name               = "monisha"
-          #customer_abbr              = "dv1"
-          #offer_name                 = "vas"
-          #customer_name              = "lab"
-          #primary_region             = "us-east4"
+          customer_abbr  = "dv1"
+          offer_name     = "vas"
+          customer_name  = "lab"
+          primary_region = "us-east4"
           #producer                   = "avaya"
           #psql_default_pwd           = "vas_cbsp_psql_default_pwd"
           #mongodb_admin_pwd          = "vas_mongodb_admin_pwd"
