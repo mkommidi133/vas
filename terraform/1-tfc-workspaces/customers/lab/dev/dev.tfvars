@@ -90,7 +90,7 @@ tfc_workspaces = {
       }
     }
     working_dir               = "terraform/2-host-infra"
-    remote_workspace_consumer = "" #["vas-avaya-lab-projects", "vas-avaya-lab-appinfra"]
+    remote_workspace_consumer = [""] #["vas-avaya-lab-projects", "vas-avaya-lab-appinfra"]
     source_workspace_trigger  = ""
   }
   #
